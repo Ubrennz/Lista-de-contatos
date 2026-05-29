@@ -8,7 +8,7 @@ def criar_contato():
 
 def mostrar_contatos():
     for linha in leitor_dados(caminho):
-        print(f"{linha[0]} - {linha[1]}")
+        print(f"{linha[0]} - {linha[10]}")
 
 def atualizar_contato():
     dado_antigo = input("Digite um valor que você deseja atualizar: ")
@@ -37,21 +37,28 @@ opcoes = {
         "0": "Sair",
     }
 
-while True:
-    for v, k in opcoes.items():
-        print(f"[{v}] {k}")
-    opcao = int(input("Digite a opcao: "))
+try:
+    while True:
+        for v, k in opcoes.items():
+            print(f"[{v}] {k}")
+        opcao = int(input("Digite a opcao: "))
 
-    if opcao == 1:
-        criar_contato()
-    elif opcao == 2:
-        mostrar_contatos()
-    elif opcao == 3:
-        atualizar_contato()
-    elif opcao == 4:
-        apagar_contato()
-    elif opcao == 0:
-        interacao_saindo()
-        break
-    else:
-        print("Número inválido, digite outro número")
+        if opcao == 1:
+            criar_contato()
+        elif opcao == 2:
+            mostrar_contatos()
+        elif opcao == 3:
+            atualizar_contato()
+        elif opcao == 4:
+            apagar_contato()
+        elif opcao == 0:
+            interacao_saindo()
+            break
+        else:
+            print("Número inválido, digite outro número")
+except ValueError:
+    print("Digite apenas números")
+except FileNotFoundError:
+    print("O não foi encontrado")
+except Exception as error:
+    print(f"Erro inesperado: {error.__class__}")
