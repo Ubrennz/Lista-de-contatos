@@ -8,7 +8,7 @@ def criar_contato():
 
 def mostrar_contatos():
     for linha in leitor_dados(caminho):
-        print(f"{linha[0]} - {linha[10]}")
+        print(f"{linha[0]} - {linha[1]}")
 
 def atualizar_contato():
     dado_antigo = input("Digite um valor que você deseja atualizar: ")
