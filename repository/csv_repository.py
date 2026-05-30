@@ -21,12 +21,4 @@ def atualizar_dados(caminho: str, dado_antigo: str, novo_dado: str):
     adicionar_dados(caminho, "w", dados_arquivo)
 
 def apagar_dado(caminho: str, dado_para_apagar: str):
-    dados_arquivo = leitor_dados(caminho)
-
-    for index1, linha in enumerate(dados_arquivo):
-        for index2 in range(0, len(linha)):
-            if dados_arquivo[index1][index2] == dado_para_apagar:
-                dados_arquivo[index1][index2] = ""
-                break
-
-    adicionar_dados(caminho, "w", dados_arquivo)
+    atualizar_dados(caminho, dado_para_apagar, "")
